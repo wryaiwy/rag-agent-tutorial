@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*$py.class
+*.so
+*.py[co]
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+*.exe
+*.dll
+*.so
+
+# Virtual Environment
+.venv/
+env/
+venv/
+ENV/
+virtualenv/
+python.exe
+*.egg-info/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Local files
+.env
+.local
+.DS_Store
