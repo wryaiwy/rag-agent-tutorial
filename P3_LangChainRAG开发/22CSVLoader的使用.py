@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import CSVLoader
 
-# TODO
-# 文档加载器提供了一套标准接口，用于将不同来源（如 CSV、PDF 或 JSON等）的数据读取为 LangChain 的文档格式。
+# TODO 返回Document 它是Langchain关于信息的统一载体
+# TODO 文档加载器提供了一套标准接口，用于将不同来源（如 CSV、PDF 或 JSON等）的数据读取为 LangChain 的文档格式
 # 这确保了无论数据来源如何，都能对其进行一致性处理。
 # 不同的文档加载器可能定义了不同的参数，但是其都实现了统一的接口（方法）。
 # load()：一次性加载全部文档
