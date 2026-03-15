@@ -20,9 +20,9 @@ uploader_file = st.file_uploader(
     accept_multiple_files=False,    # False表示仅接受一个文件的上传
 )
 
-# # session_state就是一个字典
-# if "service" not in st.session_state:
-#     st.session_state["service"] = KnowledgeBaseService()
+# session_state就是一个字典
+if "service" not in st.session_state:
+    st.session_state["service"] = KnowledgeBaseService()
 
 
 if uploader_file is not None:

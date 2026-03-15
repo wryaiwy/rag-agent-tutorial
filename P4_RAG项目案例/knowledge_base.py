@@ -52,18 +52,20 @@ class KnowledgeBaseService(object):
         # 如果文件夹不存在则创建，如果存在则跳过
         os.makedirs(config.persist_directory, exist_ok=True)
 
+        # 向量存储的实例 Chroma向量库对象
         self.chroma = Chroma(
             collection_name=config.collection_name,     # 数据库的表名
-            embedding_function=DashScopeEmbeddings(model="text-embedding-v4"),
+            embedding_function=DashScopeEmbeddings(model="qwen3-vl-rerank"),  # 嵌入模型
             persist_directory=config.persist_directory,     # 数据库本地存储文件夹
-        )     # 向量存储的实例 Chroma向量库对象
+        )
 
+        # 文本分割器的对象
         self.spliter = RecursiveCharacterTextSplitter(
             chunk_size=config.chunk_size,       # 分割后的文本段最大长度
-            chunk_overlap=config.chunk_overlap,     # 连续文本段之间的字符重叠数量
+            chunk_overlap=config.chunk_overlap, # 连续文本段之间的字符重叠数量
             separators=config.separators,       # 自然段落划分的符号
             length_function=len,                # 使用Python自带的len函数做长度统计的依据
-        )     # 文本分割器的对象
+        )
 
     def upload_by_str(self, data: str, filename):
         """将传入的字符串，进行向量化，存入向量数据库中"""
@@ -99,5 +101,5 @@ class KnowledgeBaseService(object):
 
 if __name__ == '__main__':
     service = KnowledgeBaseService()
-    r = service.upload_by_str("周杰轮222", "testfile")
+    r = service.upload_by_str("周杰伦", "testfile")
     print(r)
